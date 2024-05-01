@@ -1,37 +1,47 @@
+/*
+In Rust, every program must have a main function, which serves as the entry point for the program. The main function is where the execution of the program begins.
+*/
+
 fn main() {
-    // Numbers
-    /*
-    Signed integers
-    i8 reserve 8 bits
-    i16 reserve 16 bits
-    i32 reserve 32 bits
-    i63
-    i128
-
-    unsigned integers
-    u8
-    u16
-    u32
-    u64
-
-    Max number which it can store: 2^7 -1 && -2^7 (-128 to 127)
-
-    */
-    let signed_int: i32 = 2;
-    let un_signed_int: u32 = 62;
-    let float: f64 = 300.0002;
-
-    // Cannot MUTATE A VARIBALE IN RUST
-    // signed_int = 4;
-    // for mutating use
-    let mut _mrks: i8 = 10;
-    for _i in 0..20 {
-        _mrks = _mrks + 1;
+    // 0-10 => 0 to 9(n-1)
+    for i in 0..20 {
+        println!("{}", i);
     }
-    println!("{}", _mrks);
+    // arrays,maps,strings
+    let _sentence: String = String::from("my name is jay");
+    let first_word = get_first_word(_sentence);
+    print!("First word is: {}", first_word);
 
-    println!(
-        "signed_int:{}, un_signed_int:{}, float:{}",
-        signed_int, un_signed_int, float
-    );
+
+    // for loop
+    let n:i32 = 1000;
+    for i in 0..n  {
+        println!("Hello world! {}",i);
+    }
+    let a:i32 =10;
+    let b:i32 = 20;
+    let sum:i32 = do_sum(a, b);
+    println!("Sum of {} and  {} is {}",a,b,sum);
+}
+//////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+// Return type is must to give, can't be inferred
+// fn  fn name () -> return_type{}
+
+fn do_sum(a:i32,b:i32)-> i32 {
+    return a+b;
+}
+
+
+
+fn get_first_word(sentence: String) -> String {
+    let mut ans: String = String::from("");
+
+    for char in sentence.chars() {
+        ans.push(char);
+        if char == ' ' {
+            break;
+        }
+    }
+    return ans;
 }
